@@ -25,7 +25,7 @@ object ExamplesApplicationBuild extends MechaRepoBuild {
     scalaVersion := "2.11.4",
     version := "0.1",
     organization := "com.storm-enroute",
-    libraryDependencies ++= Seq(),
+    libraryDependencies ++= superRepoDependencies("examples-application"),
     MechaRepoPlugin.configQueryKey := Some(configQuery),
     MechaRepoPlugin.generateConfigFileTask
   )
@@ -33,9 +33,9 @@ object ExamplesApplicationBuild extends MechaRepoBuild {
   def repoName = "examples-application"
 
   lazy val examplesApplication: Project = Project(
-    "examplesApplication",
+    "examples-application",
     file("."),
     settings = examplesApplicationSettings
-  )
+  ) dependsOnSuperRepo
 
 }
